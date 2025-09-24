@@ -48,21 +48,25 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
                     MessageBox.Show("введите число");
                     return;
                 }
-                BaseClass function = null;
+              //  BaseClass function = null;
+                double res;
                 switch (TrigFun.SelectedIndex)
                 {
                     case 0:
-                        function = new Secans(); //конструктор по умолчанию (наследника)
+                        Secans function1 = new Secans(); //конструктор по умолчанию (наследника)
+                        res = function1.Calculate(double.Parse(xTextBox.Text) * Math.PI / 180);
                         break;
                     case 1:
-                        function = new Cosecans();
+                        Cosecans function2 = new Cosecans();
+                        res = function2.Calculate(double.Parse(xTextBox.Text) * Math.PI / 180);
                         break;
                     case 2:
-                        function = new Cotangens();
+                        Cotangens function3 = new Cotangens();
+                        res = function3.Calculate(double.Parse(xTextBox.Text), true);
                         break;
                     default: return;
                 }
-                double res = function.Calculate(double.Parse(xTextBox.Text) * Math.PI / 180);
+               // double res = function.Calculate(double.Parse(xTextBox.Text) * Math.PI / 180);
                 resultTextBox.Text = res.ToString();
             }
             catch(Exception ex)

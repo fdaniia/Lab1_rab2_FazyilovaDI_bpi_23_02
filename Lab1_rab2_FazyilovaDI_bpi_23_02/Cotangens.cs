@@ -18,16 +18,12 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
             {
                 x = x * Math.PI / 180;
             }
-            if (Math.Abs(Math.Sin(x)) < 1e-10)
-                throw new ArgumentException("нельзя посчитать котангенс");
-
+            if (Math.Abs(Math.Sin(x)) < 1e-10) throw new ArgumentException("нельзя посчитать котангенс");
             return Math.Cos(x) / Math.Sin(x);
         }
         public override double Calculate(double x)
         {
-            if (Math.Abs(Math.Sin(x)) < 1e-10)
-                throw new ArgumentException("нельзя посчитать котангенс");
-
+            if (Math.Abs(Math.Sin(x)) < 1e-10) throw new ArgumentException("нельзя посчитать котангенс");
             return Math.Cos(x) / Math.Sin(x);
         }
         public override BaseClass GetDerivative() //переопределение виртуального метода
@@ -42,10 +38,6 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
         {
             if (Math.Abs(Math.Sin(x)) < 1e-10) throw new ArgumentException("нельзя посчитать производную котангенса");
             return -1 / (Math.Sin(x) * Math.Sin(x));
-        }
-        public override string GetFunctionName()
-        {
-            return "производная -cosec²(x)";
         }
     }
 }

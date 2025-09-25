@@ -22,22 +22,13 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
             Console.WriteLine("производная секанса: sec(x)*tg(x)");
             return new SecansDerivative();
         }
-        public override string GetFunctionName() // переопределяем виртуальный метод
-        {
-            return "Секанс (sec(x))";
-        }
     }
     public class SecansDerivative : BaseClass
     {
         public override double Calculate(double x)
         {
             if (Math.Abs(Math.Cos(x)) < 1e-10) throw new ArgumentException("нельзя посчитать производную секанса");
-
             return (1 / Math.Cos(x)) * Math.Tan(x);
-        }
-        public override string GetFunctionName()
-        {
-            return "производная sec(x)*tg(x)";
         }
     }
 }

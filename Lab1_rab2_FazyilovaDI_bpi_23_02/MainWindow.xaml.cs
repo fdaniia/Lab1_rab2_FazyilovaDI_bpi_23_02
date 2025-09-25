@@ -24,7 +24,7 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
         {
             InitializeComponent();
         }
-        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        private void textBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             foreach (char c in e.Text)
             {
@@ -35,11 +35,11 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
                 }
             }
         }
-        private void TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
+        private void textBox_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Space) e.Handled = true;
         }
-        private void Compute_Click (object sender, RoutedEventArgs e)
+        private void compute_Click (object sender, RoutedEventArgs e)
         {
             try
             {

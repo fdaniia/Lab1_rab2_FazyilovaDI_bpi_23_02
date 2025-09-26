@@ -17,7 +17,7 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
             if (Math.Abs(Math.Sin(x)) < 1e-10) throw new ArgumentException("нельзя посчитать косеканс");
             return 1 / Math.Sin(x);
         }
-        public override BaseClass GetDerivative()
+        public override BaseClass GetDerivative() //производная
         {
             Console.WriteLine("производная -cosec(x)*ctg(x)");
             return new CosecansDerivative();

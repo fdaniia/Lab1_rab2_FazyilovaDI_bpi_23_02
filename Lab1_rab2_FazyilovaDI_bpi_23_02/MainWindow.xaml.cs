@@ -53,15 +53,15 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
                 switch (TrigFun.SelectedIndex)
                 {
                     case 0:
-                        Secans function1 = new Secans(); //конструктор по умолчанию (наследника)
+                        Secans function1 = new Secans(double.Parse(xTextBox.Text) * Math.PI / 180); //конструктор по умолчанию (наследника)
                         res = function1.Calculate(double.Parse(xTextBox.Text) * Math.PI / 180);
                         break;
                     case 1:
-                        Cosecans function2 = new Cosecans();
+                        Cosecans function2 = new Cosecans(double.Parse(xTextBox.Text) * Math.PI / 180);
                         res = function2.Calculate(double.Parse(xTextBox.Text) * Math.PI / 180);
                         break;
                     case 2:
-                        Cotangens function3 = new Cotangens();
+                        Cotangens function3 = new Cotangens(double.Parse(xTextBox.Text) * Math.PI / 180);
                         if (xTextBox.Text.Contains(",")) res = function3.Calculate(double.Parse(xTextBox.Text), false);
                         else res = function3.Calculate(double.Parse(xTextBox.Text) * Math.PI / 180);
                        // res = function3.Calculate(double.Parse(xTextBox.Text), true);

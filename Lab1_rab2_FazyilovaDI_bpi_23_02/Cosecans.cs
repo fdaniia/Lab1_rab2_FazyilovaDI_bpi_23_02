@@ -8,7 +8,8 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
 {
     public class Cosecans : BaseClass
     {
-        public Cosecans() : base() 
+        
+        public Cosecans(double x) : base (x)
         {
             Console.WriteLine("конструктор Cosecans вызван");
         }
@@ -17,11 +18,11 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
             if (Math.Abs(Math.Sin(x)) < 1e-10) throw new ArgumentException("нельзя посчитать косеканс");
             return 1 / Math.Sin(x);
         }
-        public override BaseClass GetDerivative() //производная
+       /* public override BaseClass GetDerivative() //производная
         {
             Console.WriteLine("производная -cosec(x)*ctg(x)");
-            return new CosecansDerivative();
-        }        
+         //   return new CosecansDerivative();
+        }      */  
         public override string GetFunctionName() //переопределяем виртуальный метод
         {
             return "производная cosec(x)";

@@ -8,15 +8,26 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
 {
     public abstract class BaseClass //базовый родительский класс
     {
-        public BaseClass()
+        private double x; 
+        public double X 
+        { 
+            get { return x; } 
+            set { x = value; } 
+        }
+        public BaseClass(double x)
         {
             Console.WriteLine("Конструктор BaseClass вызван");
+            X = x;
         }
+       /* public Xx (double x)
+        {
+            X = x;
+        }*/
 
         public virtual double Calculate(double x)
         {
             return x;
-        }        
+        }  
         public virtual BaseClass GetDerivative() //виртуальный метод для получения производной 
         {
             return null;

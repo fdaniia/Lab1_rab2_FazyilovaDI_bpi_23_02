@@ -28,7 +28,7 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
         {
             foreach (char c in e.Text)
             {
-                if (!char.IsDigit(c) && e.Text != "." && e.Text != ",")
+                if (!char.IsDigit(c)  && e.Text != ",")
                 {
                     e.Handled = true;
                     return;
@@ -62,7 +62,9 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
                         break;
                     case 2:
                         Cotangens function3 = new Cotangens();
-                        res = function3.Calculate(double.Parse(xTextBox.Text), true);
+                        if (xTextBox.Text.Contains(",")) res = function3.Calculate(double.Parse(xTextBox.Text), false);
+                        else res = function3.Calculate(double.Parse(xTextBox.Text) * Math.PI / 180);
+                       // res = function3.Calculate(double.Parse(xTextBox.Text), true);
                         break;
                     default: return;
                 }

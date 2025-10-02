@@ -28,18 +28,19 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
             if (Math.Abs(Math.Sin(x)) < 1e-10) throw new ArgumentException("нельзя посчитать котангенс");
             return Math.Cos(x) / Math.Sin(x);
         }
-       /* public override BaseClass GetDerivative() //переопределение виртуального метода
+        public override IFunction GetDerivative(double x) //переопределение виртуального метода
         {
             Console.WriteLine("производная -cosec²(x)");
-           return new CosecansDerivative();
-        }*/
+           return new CosecansDerivative(x);
+        }
     }
-   /* public class CosecansDerivative : BaseClass //производная
+    public class CosecansDerivative : BaseClass //производная
     {
-        public override double Calculate(double x)
+        public CosecansDerivative (double x) : base(x) { }
+        public override double Calculate (double x)
         {
             if (Math.Abs(Math.Sin(x)) < 1e-10) throw new ArgumentException("нельзя посчитать производную котангенса");
             return -1 / (Math.Sin(x) * Math.Sin(x));
         }
-    }*/
+    }
 }

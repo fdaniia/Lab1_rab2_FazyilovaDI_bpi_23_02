@@ -18,18 +18,19 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
             if (Math.Abs(Math.Cos(x)) < 1e-10) throw new ArgumentException("нельзя посчитать секанс");
             return 1 / Math.Cos(x);
         }
-      /*  public override BaseClass GetDerivative() //производная
+        public override IFunction GetDerivative(double x) //производная
         {
             Console.WriteLine("производная секанса: sec(x)*tg(x)");
-        //    return new SecansDerivative();
-        }*/
+            return new SecansDerivative(x);
+        }
     }
-   /* public class SecansDerivative : BaseClass 
+    public class SecansDerivative : BaseClass 
     {
+        public SecansDerivative(double x) : base(x) { }
         public override double Calculate(double x)
         {
             if (Math.Abs(Math.Cos(x)) < 1e-10) throw new ArgumentException("нельзя посчитать производную секанса");
             return (1 / Math.Cos(x)) * Math.Tan(x);
         }
-    }*/
+    }
 }

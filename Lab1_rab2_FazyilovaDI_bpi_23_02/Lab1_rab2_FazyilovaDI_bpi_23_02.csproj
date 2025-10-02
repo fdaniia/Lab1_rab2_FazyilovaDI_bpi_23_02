@@ -58,6 +58,7 @@
     <Compile Include="BeseClass.cs" />
     <Compile Include="Cosecans.cs" />
     <Compile Include="Cotangens.cs" />
+    <Compile Include="IFunction.cs" />
     <Compile Include="Secans.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

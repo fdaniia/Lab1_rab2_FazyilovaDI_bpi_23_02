@@ -22,10 +22,10 @@
         <Label Content="введите x" Grid.Row="1" Grid.Column="0" />
         <TextBox x:Name ="xTextBox" Grid.Row="1" Grid.Column="1" Width="200" PreviewTextInput="textBox_PreviewTextInput" PreviewKeyDown="textBox_PreviewKeyDown"/>
         <Label Content="выберите что считать" Grid.Row="2" Grid.Column="0" />
-        <ComboBox x:Name="TrigFun" Grid.Row="2" Grid.Column="1" SelectedIndex="0">
-            <ComboBoxItem Content="секанс" />
-            <ComboBoxItem Content="косеканс" />
-            <ComboBoxItem Content="котангенс" />
+        <ComboBox x:Name="TrigFun" Grid.Row="2" Grid.Column="1" >
+            <ComboBoxItem Content="Secans" />
+            <ComboBoxItem Content="Cosecans" />
+            <ComboBoxItem Content="Corangens" />
         </ComboBox>
         <Button Content="посчитать" Grid.Column="0" Grid.Row="3"  Click="compute_Click"/>        
         <Label Content=" результат" Grid.Column="0" Grid.Row="4"/>

@@ -50,26 +50,38 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
                 }
               //  BaseClass function = null;
                 double res;
+                double derivativeRes;
                 switch (TrigFun.SelectedIndex)
                 {
                     case 0:
                         Secans function1 = new Secans(double.Parse(xTextBox.Text) * Math.PI / 180); //конструктор по умолчанию (наследника)
                         res = function1.Calculate(double.Parse(xTextBox.Text) * Math.PI / 180);
+                        derivativeRes = function1.GetDerivative(double.Parse(xTextBox.Text) * Math.PI / 180);
                         break;
                     case 1:
                         Cosecans function2 = new Cosecans(double.Parse(xTextBox.Text) * Math.PI / 180);
                         res = function2.Calculate(double.Parse(xTextBox.Text) * Math.PI / 180);
+                        derivativeRes = function2.GetDerivative(double.Parse(xTextBox.Text) * Math.PI / 180);
                         break;
                     case 2:
                         Cotangens function3 = new Cotangens(double.Parse(xTextBox.Text) * Math.PI / 180);
-                        if (xTextBox.Text.Contains(",")) res = function3.Calculate(double.Parse(xTextBox.Text), false);
-                        else res = function3.Calculate(double.Parse(xTextBox.Text) * Math.PI / 180);
-                       // res = function3.Calculate(double.Parse(xTextBox.Text), true);
-                        break;
+                        if (xTextBox.Text.Contains(","))
+                        {
+                            res = function3.Calculate(double.Parse(xTextBox.Text), false);
+                            derivativeRes = function3.GetDerivative(double.Parse(xTextBox.Text) * Math.PI / 180);
+                        }
+                        else
+                        {
+                            res = function3.Calculate(double.Parse(xTextBox.Text) * Math.PI / 180);
+                            derivativeRes = function3.GetDerivative(double.Parse(xTextBox.Text) * Math.PI / 180);
+                        }
+                            // res = function3.Calculate(double.Parse(xTextBox.Text), true);
+                            break;
                     default: return;
                 }
                // double res = function.Calculate(double.Parse(xTextBox.Text) * Math.PI / 180);
                 resultTextBox.Text = res.ToString();
+                derivativeTextBox.Text = derivativeRes.ToString();
             }
             catch(Exception ex)
             {

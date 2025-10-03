@@ -55,7 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BeseClass.cs" />
+    <Compile Include="BaseClass.cs" />
     <Compile Include="Cosecans.cs" />
     <Compile Include="Cotangens.cs" />
     <Compile Include="IFunction.cs" />

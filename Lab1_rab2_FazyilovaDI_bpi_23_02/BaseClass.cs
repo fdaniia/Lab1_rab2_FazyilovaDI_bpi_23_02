@@ -23,14 +23,14 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
         public virtual double Calculate(double x)
         {
             return x;
-        }  
-        public virtual IFunction GetDerivative(double x) //виртуальный метод для получения производной 
+        }        
+        public virtual double GetDerivative(double x) //виртуальный метод для получения производной 
         {
-            return null;
+            return 0;
         }
         public virtual string GetFunctionName(double x) //виртуальный метод, который будет переопределяться в одном наследнике
         {
-            return "Базовая функция";
+            return "Базовая функция";   
         }
     }
 }

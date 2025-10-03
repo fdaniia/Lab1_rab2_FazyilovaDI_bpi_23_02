@@ -18,10 +18,12 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
             if (Math.Abs(Math.Sin(x)) < 1e-10) throw new ArgumentException("нельзя посчитать косеканс");
             return 1 / Math.Sin(x);
         }
-        public override IFunction GetDerivative(double x) //производная
+        public override double GetDerivative(double x) //производная
         {
-            Console.WriteLine("производная -cosec(x)*ctg(x)");
-            return new CosecansDerivative(x);
+            if (Math.Abs(Math.Sin(x)) < 1e-10) throw new ArgumentException("нельзя посчитать производную");
+            return -(1 / Math.Sin(x)) * (Math.Cos(x) / Math.Sin(x));
+            /*Console.WriteLine("производная -cosec(x)*ctg(x)");
+            return new CosecansDerivative(x); */
         }        
         public override string GetFunctionName(double x) //переопределяем виртуальный метод
         {

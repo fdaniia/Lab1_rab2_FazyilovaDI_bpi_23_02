@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 namespace Lab1_rab2_FazyilovaDI_bpi_23_02
 {
     public class Cotangens : BaseClass
-    {
-        
+    {       
         public Cotangens(double x) : base (x)
         {
             Console.WriteLine("конструктор Cotangens вызван");
@@ -28,10 +27,12 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
             if (Math.Abs(Math.Sin(x)) < 1e-10) throw new ArgumentException("нельзя посчитать котангенс");
             return Math.Cos(x) / Math.Sin(x);
         }
-        public override IFunction GetDerivative(double x) //переопределение виртуального метода
+        public override double GetDerivative(double x) //переопределение виртуального метода
         {
-            Console.WriteLine("производная -cosec²(x)");
-           return new CosecansDerivative(x);
+            if (Math.Abs(Math.Sin(x)) < 1e-10) throw new ArgumentException("нельзя посчитать производную");
+            return -1 / (Math.Sin(x) * Math.Cos(x));
+            /*Console.WriteLine("производная -cosec²(x)");
+           return new CosecansDerivative(x); */
         }
     }
     public class CosecansDerivative : BaseClass //производная

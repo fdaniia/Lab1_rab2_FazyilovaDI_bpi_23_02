@@ -10,6 +10,6 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
     {
         double Calculate(double x);
         string GetFunctionName(double x);
-        IFunction GetDerivative(double x);
+        double GetDerivative(double x);
     }
 }

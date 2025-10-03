@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab1_rab2_FazyilovaDI_bpi_23_02"
         mc:Ignorable="d"
-        Title="тригонометрические функции" Height="150" Width="350" MinHeight="100" MinWidth="150">
+        Title="тригонометрические функции" Height="200" Width="350" MinHeight="200" MinWidth="150">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -27,8 +27,10 @@
             <ComboBoxItem Content="косеканс" />
             <ComboBoxItem Content="котангенс" />
         </ComboBox>
-        <Button Content="посчитать" Grid.Column="0" Grid.Row="3"  Click="compute_Click"/>
+        <Button Content="посчитать" Grid.Column="0" Grid.Row="3"  Click="compute_Click"/>        
         <Label Content=" результат" Grid.Column="0" Grid.Row="4"/>
         <TextBox x:Name="resultTextBox" Grid.Row="4" Grid.Column="1" Width="200" IsEnabled="False"/>
+        <Label Content="производная" Grid.Column="0" Grid.Row="5" />
+        <TextBox x:Name="derivativeTextBox" Grid.Row="5" Grid.Column="1" Width="200" IsEnabled="False" />
     </Grid>
 </Window>

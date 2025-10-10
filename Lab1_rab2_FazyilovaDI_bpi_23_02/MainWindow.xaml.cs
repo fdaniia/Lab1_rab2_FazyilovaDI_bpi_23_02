@@ -20,9 +20,11 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
     /// </summary>
     public partial class MainWindow : Window
     {
+        private bool isDarkTheme = false;
         public MainWindow()
         {
             InitializeComponent();
+            ApplyLightTheme();
         }
         private void textBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
@@ -87,6 +89,28 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+        private void ThemeToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+            isDarkTheme = !isDarkTheme;
+            if (isDarkTheme) ApplyDarkTheme();
+            else { ApplyLightTheme(); }
+        }
+        private void ApplyLightTheme()
+        {
+            var uri = new Uri("LightTheme.xaml", UriKind.Relative);
+            ResourceDictionary resourceDict = Application.LoadComponent(uri) as ResourceDictionary;
+            Application.Current.Resources.Clear();
+            Application.Current.Resources.MergedDictionaries.Add(resourceDict);
+            ThemeToggleButton.Content = "темная тема";
+        }
+        private void ApplyDarkTheme()
+        {
+            var uri = new Uri("DarkTheme.xaml", UriKind.Relative);
+            ResourceDictionary resourceDict = Application.LoadComponent(uri) as ResourceDictionary;
+            Application.Current.Resources.Clear();
+            Application.Current.Resources.MergedDictionaries.Add(resourceDict);
+            ThemeToggleButton.Content = "светлая тема";
         }
     }
 }

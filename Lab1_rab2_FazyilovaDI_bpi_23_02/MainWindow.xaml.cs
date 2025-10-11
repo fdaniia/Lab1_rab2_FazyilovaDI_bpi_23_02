@@ -100,17 +100,23 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
         {
             var uri = new Uri("LightTheme.xaml", UriKind.Relative);
             ResourceDictionary resourceDict = Application.LoadComponent(uri) as ResourceDictionary;
-            Application.Current.Resources.Clear();
+            Application.Current.Resources.MergedDictionaries.Clear();
             Application.Current.Resources.MergedDictionaries.Add(resourceDict);
             ThemeToggleButton.Content = "темная тема";
         }
+
         private void ApplyDarkTheme()
         {
             var uri = new Uri("DarkTheme.xaml", UriKind.Relative);
             ResourceDictionary resourceDict = Application.LoadComponent(uri) as ResourceDictionary;
-            Application.Current.Resources.Clear();
+            Application.Current.Resources.MergedDictionaries.Clear();
             Application.Current.Resources.MergedDictionaries.Add(resourceDict);
             ThemeToggleButton.Content = "светлая тема";
+        }
+
+        private void TrigFun_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

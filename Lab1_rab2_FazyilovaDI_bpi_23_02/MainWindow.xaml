@@ -26,7 +26,7 @@
         <TextBox x:Name ="xTextBox" Grid.Row="1" Grid.Column="1" Width="200" Style="{DynamicResource {x:Type TextBox}}"
                  PreviewTextInput="textBox_PreviewTextInput" PreviewKeyDown="textBox_PreviewKeyDown"/>
         <Label Content="выберите что считать" Grid.Row="2" Grid.Column="0" Style="{DynamicResource {x:Type Label}}" />
-        <ComboBox x:Name="TrigFun" Grid.Row="2" Grid.Column="1" Style="{DynamicResource {x:Type ComboBox}}" >
+        <ComboBox x:Name="TrigFun" Grid.Row="2" Grid.Column="1" Style="{DynamicResource {x:Type ComboBox}}" SelectionChanged="TrigFun_SelectionChanged" >
             <ComboBoxItem Content="Secans"  />
             <ComboBoxItem Content="Cosecans" />
             <ComboBoxItem Content="Corangens" />

@@ -5,7 +5,6 @@
     <SolidColorBrush x:Key="TextBrush" Color="Orange"/>
     <SolidColorBrush x:Key="BorderBrush" Color="DimGray"/>
     <SolidColorBrush x:Key="ButtonHoverBrush" Color="Navy"/>
-
     <Style TargetType="Window">
         <Setter Property="Background" Value="{StaticResource BackgroundBrush}"/>
     </Style>

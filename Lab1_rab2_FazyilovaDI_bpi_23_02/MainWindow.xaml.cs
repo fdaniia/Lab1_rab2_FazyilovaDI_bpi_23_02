@@ -23,10 +23,13 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
         private bool isDarkTheme = false;
         private Color lightComboBoxColor = Colors.PaleGreen;
         private Color darkComboBoxColor = Colors.DarkBlue;
+        private Color lightComboBoxHoverColor = Colors.DarkGreen;
+        private Color darkComboBoxHoverColor = Colors.Navy;
         public MainWindow()
         {
             InitializeComponent();
             this.Resources["ComboBoxBackgroundColor"] = lightComboBoxColor;
+            this.Resources["ComboBoxHoverColor"] = lightComboBoxHoverColor;
             ApplyLightTheme();
         }
         private void textBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -106,7 +109,8 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
             Application.Current.Resources.MergedDictionaries.Clear();
             Application.Current.Resources.MergedDictionaries.Add(resourceDict);
             this.Resources["ComboBoxBackgroundColor"] = lightComboBoxColor;
-            ThemeToggleButton.Content = "темная тема";
+            this.Resources["ComboBoxHoverColor"] = lightComboBoxHoverColor;
+            ThemeToggleButton.Content = "темная тема";            
         }
 
         private void ApplyDarkTheme()
@@ -116,6 +120,7 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
             Application.Current.Resources.MergedDictionaries.Clear();
             Application.Current.Resources.MergedDictionaries.Add(resourceDict);
             this.Resources["ComboBoxBackgroundColor"] = darkComboBoxColor;
+            this.Resources["ComboBoxHoverColor"] = darkComboBoxHoverColor;
             ThemeToggleButton.Content = "светлая тема";
         }
         private void TrigFun_SelectionChanged(object sender, SelectionChangedEventArgs e)

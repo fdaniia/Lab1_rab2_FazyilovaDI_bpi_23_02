@@ -21,9 +21,12 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
     public partial class MainWindow : Window
     {
         private bool isDarkTheme = false;
+        private Color lightComboBoxColor = Colors.PaleGreen;
+        private Color darkComboBoxColor = Colors.DarkBlue;
         public MainWindow()
         {
             InitializeComponent();
+            this.Resources["ComboBoxBackgroundColor"] = lightComboBoxColor;
             ApplyLightTheme();
         }
         private void textBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -102,6 +105,7 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
             ResourceDictionary resourceDict = Application.LoadComponent(uri) as ResourceDictionary;
             Application.Current.Resources.MergedDictionaries.Clear();
             Application.Current.Resources.MergedDictionaries.Add(resourceDict);
+            this.Resources["ComboBoxBackgroundColor"] = lightComboBoxColor;
             ThemeToggleButton.Content = "темная тема";
         }
 
@@ -111,9 +115,9 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
             ResourceDictionary resourceDict = Application.LoadComponent(uri) as ResourceDictionary;
             Application.Current.Resources.MergedDictionaries.Clear();
             Application.Current.Resources.MergedDictionaries.Add(resourceDict);
+            this.Resources["ComboBoxBackgroundColor"] = darkComboBoxColor;
             ThemeToggleButton.Content = "светлая тема";
         }
-
         private void TrigFun_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 

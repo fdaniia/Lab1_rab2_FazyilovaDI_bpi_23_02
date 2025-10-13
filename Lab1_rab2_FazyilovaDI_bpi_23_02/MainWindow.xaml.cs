@@ -25,6 +25,7 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
         private Color darkComboBoxColor = Colors.DarkBlue;
         private Color lightComboBoxHoverColor = Colors.DarkGreen;
         private Color darkComboBoxHoverColor = Colors.Navy;
+
         public MainWindow()
         {
             InitializeComponent();

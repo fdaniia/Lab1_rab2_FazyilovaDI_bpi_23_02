@@ -4,7 +4,7 @@
     <SolidColorBrush x:Key="ControlBackgroundBrush" Color="DarkBlue"/>
     <SolidColorBrush x:Key="TextBrush" Color="Orange"/>
     <SolidColorBrush x:Key="BorderBrush" Color="DimGray"/>
-    <SolidColorBrush x:Key="ButtonHoverBrush" Color="Navy"/>
+    <SolidColorBrush x:Key="ButtonHoverBrush" Color="Indigo"/>
     <Style TargetType="Window">
         <Setter Property="Background" Value="{StaticResource BackgroundBrush}"/>
     </Style>
@@ -30,16 +30,33 @@
         <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
         <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}"/>
     </Style>
-    <Style TargetType="Button">
-        <Setter Property="Background" Value="{StaticResource ControlBackgroundBrush}"/>
+    <Style x:Key="CustomButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="DarkBlue"/>
         <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
         <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}"/>
         <Setter Property="Padding" Value="8,2"/>
         <Setter Property="Margin" Value="2"/>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{StaticResource ButtonHoverBrush}"/>
-            </Trigger>
-        </Style.Triggers>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border" Background="{TemplateBinding Background}" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="1" 
+                            CornerRadius="2">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="Indigo"/>
+                            <Setter Property="BorderBrush" Value="Indigo"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="BlueViolet"/>
+                            <Setter Property="BorderBrush" Value="BlueViolet"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 </ResourceDictionary>

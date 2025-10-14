@@ -24,7 +24,7 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
         private Color lightComboBoxColor = Colors.PaleGreen;
         private Color darkComboBoxColor = Colors.DarkBlue;
         private Color lightComboBoxHoverColor = Colors.DarkGreen;
-        private Color darkComboBoxHoverColor = Colors.Navy;
+        private Color darkComboBoxHoverColor = Colors.Indigo;
 
         public MainWindow()
         {
@@ -111,9 +111,10 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
             Application.Current.Resources.MergedDictionaries.Add(resourceDict);
             this.Resources["ComboBoxBackgroundColor"] = lightComboBoxColor;
             this.Resources["ComboBoxHoverColor"] = lightComboBoxHoverColor;
+            ThemeToggleButton.ClearValue(Button.BackgroundProperty);
+            ThemeToggleButton.ClearValue(Button.StyleProperty);
             ThemeToggleButton.Content = "темная тема";            
         }
-
         private void ApplyDarkTheme()
         {
             var uri = new Uri("DarkTheme.xaml", UriKind.Relative);

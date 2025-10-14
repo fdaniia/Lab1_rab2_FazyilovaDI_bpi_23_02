@@ -9,7 +9,7 @@
     xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
     <Window.Resources>
         <Color x:Key="ComboBoxBackgroundColor">PaleGreen</Color>
-        <Color x:Key="ComboBoxHoverColor">DarkGreen</Color>
+        <Color x:Key="ComboBoxHoverColor">DarkGreen</Color>        
 
         <SolidColorBrush x:Key="ComboBoxItem.ItemsviewHoverFocus.Background" Color="{DynamicResource ComboBoxHoverColor}"/>
         <SolidColorBrush x:Key="ComboBoxItem.ItemsviewSelected.Background" Color="{DynamicResource ComboBoxHoverColor}"/>
@@ -154,7 +154,7 @@
                 </Grid.ColumnDefinitions>
                 <Popup x:Name="PART_Popup" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" Placement="Bottom" PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}">
                     <theme:SystemDropShadowChrome x:Name="shadow" Color="Transparent" MinWidth="{Binding ActualWidth, ElementName=templateRoot}" MaxHeight="{TemplateBinding MaxDropDownHeight}">
-                        <Border x:Name="dropDownBorder" BorderBrush="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" BorderThickness="1" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
+                        <Border x:Name="dropDownBorder" BorderBrush="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" BorderThickness="1" Background="{DynamicResource ComboBoxBackgroundColor}">
                             <ScrollViewer x:Name="DropDownScrollViewer">
                                 <Grid x:Name="grid" RenderOptions.ClearTypeHint="Enabled">
                                     <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
@@ -215,7 +215,7 @@
             <Setter Property="Padding" Value="4,1"/>
             <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
             <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
-            <Setter Property="Background" Value="LimeGreen"/>
+            <Setter Property="Background" Value="{DynamicResource ComboBoxBackgroundColor}"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
@@ -302,7 +302,7 @@
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <Button x:Name="ThemeToggleButton" Content="темная тема" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Right" 
-                Click="ThemeToggleButton_Click" Style="{DynamicResource {x:Type Button}}"/>
+                Click="ThemeToggleButton_Click" Style="{DynamicResource CustomButtonStyle}"/>
         <Label Content="введите x" Grid.Row="1" Grid.Column="0" Style="{DynamicResource {x:Type Label}}"/>
         <TextBox x:Name ="xTextBox" Grid.Row="1" Grid.Column="1" Width="200" Style="{DynamicResource {x:Type TextBox}}"
                  PreviewTextInput="textBox_PreviewTextInput" PreviewKeyDown="textBox_PreviewKeyDown"/>
@@ -313,7 +313,7 @@
             <ComboBoxItem Content="Cosecans" />
             <ComboBoxItem Content="Cotangens" />
         </ComboBox>
-        <Button Content="посчитать" Grid.Column="0" Grid.Row="3"  Click="compute_Click" Style="{DynamicResource {x:Type Button}}"/>
+        <Button Content="посчитать" Grid.Column="0" Grid.Row="3"  Click="compute_Click" Style="{DynamicResource CustomButtonStyle}"/>
         <Label Content=" результат" Grid.Column="0" Grid.Row="4" Style="{DynamicResource {x:Type Label}}"/>
         <TextBox x:Name="resultTextBox" Grid.Row="4" Grid.Column="1" Width="200" IsEnabled="False" Style="{DynamicResource {x:Type TextBox}}"/>
         <Label Content="производная" Grid.Column="0" Grid.Row="5" Style="{DynamicResource {x:Type Label}}"/>

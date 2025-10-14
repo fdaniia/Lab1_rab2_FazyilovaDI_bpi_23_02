@@ -9,7 +9,7 @@
     xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
     <Window.Resources>
         <Color x:Key="ComboBoxBackgroundColor">PaleGreen</Color>
-        <Color x:Key="ComboBoxHoverColor">DarkGreen</Color>        
+        <Color x:Key="ComboBoxHoverColor">DarkGreen</Color>
 
         <SolidColorBrush x:Key="ComboBoxItem.ItemsviewHoverFocus.Background" Color="{DynamicResource ComboBoxHoverColor}"/>
         <SolidColorBrush x:Key="ComboBoxItem.ItemsviewSelected.Background" Color="{DynamicResource ComboBoxHoverColor}"/>

@@ -309,6 +309,10 @@
         <Label Content="выберите что считать" Grid.Row="2" Grid.Column="0" Style="{DynamicResource {x:Type Label}}" />
         <ComboBox ItemContainerStyle="{DynamicResource ComboBoxItemContainerStyle1}" Template="{DynamicResource ComboBoxTemplate1}" x:Name="TrigFun" Grid.Row="2" Grid.Column="1" 
                   Style="{DynamicResource {x:Type ComboBox}}" SelectionChanged="TrigFun_SelectionChanged" >
+            <Style TargetType="ComboBoxItem">
+                <Setter Property="Background" Value="{StaticResource ComboBox.Static.Background}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource ComboBox.Static.Background}"/>
+            </Style>
             <ComboBoxItem Content="Secans"  />
             <ComboBoxItem Content="Cosecans" />
             <ComboBoxItem Content="Cotangens" />

@@ -113,6 +113,7 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
             this.Resources["ComboBoxHoverColor"] = lightComboBoxHoverColor;
             ThemeToggleButton.ClearValue(Button.BackgroundProperty);
             ThemeToggleButton.ClearValue(Button.StyleProperty);
+            this.Tag = "Light";
             ThemeToggleButton.Content = "темная тема";            
         }
         private void ApplyDarkTheme()
@@ -123,6 +124,7 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
             Application.Current.Resources.MergedDictionaries.Add(resourceDict);
             this.Resources["ComboBoxBackgroundColor"] = darkComboBoxColor;
             this.Resources["ComboBoxHoverColor"] = darkComboBoxHoverColor;
+            this.Tag = "Dark";
             ThemeToggleButton.Content = "светлая тема";
         }
         private void TrigFun_SelectionChanged(object sender, SelectionChangedEventArgs e)

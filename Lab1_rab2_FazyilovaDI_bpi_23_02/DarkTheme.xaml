@@ -5,6 +5,9 @@
     <SolidColorBrush x:Key="TextBrush" Color="Orange"/>
     <SolidColorBrush x:Key="BorderBrush" Color="DimGray"/>
     <SolidColorBrush x:Key="ButtonHoverBrush" Color="Indigo"/>
+    <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="Black"/>
+    <SolidColorBrush x:Key="TextBox.Focus.Border" Color="Black"/>
+
     <Style TargetType="Window">
         <Setter Property="Background" Value="{StaticResource BackgroundBrush}"/>
     </Style>
@@ -58,5 +61,6 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>    
+    </Style>   
+    
 </ResourceDictionary>

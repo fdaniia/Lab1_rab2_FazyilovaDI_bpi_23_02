@@ -129,5 +129,10 @@ namespace Lab1_rab2_FazyilovaDI_bpi_23_02
         {
 
         }
+
+        private void xTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

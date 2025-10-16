@@ -315,6 +315,10 @@
                 <Trigger Property="Button.IsDefaulted" Value="true">
                     <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
                 </Trigger>
+                <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource AncestorType=Window}}" Value="Light">
+                    <Setter Property="Background" TargetName="border" Value="PaleGreen"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="PaleGreen"/>
+                </DataTrigger>
                 <Trigger Property="IsMouseOver" Value="true">
                     <Setter Property="Background" TargetName="border" Value="DarkGreen"/>
                     <Setter Property="BorderBrush" TargetName="border" Value="DarkGreen"/>
@@ -369,7 +373,7 @@
         <Button Template="{StaticResource ButtonTemplate2}" 
                 x:Name="ThemeToggleButton" Content="темная тема" Grid.Row="0" Grid.Column="0"
                 Grid.ColumnSpan="2" HorizontalAlignment="Right" 
-                Click="ThemeToggleButton_Click" Background="PaleGreen" BorderBrush="LightGray"/>
+                Click="ThemeToggleButton_Click" Background="PaleGreen" BorderBrush="PaleGreen"/>
         <Label Content="введите x" Grid.Row="1" Grid.Column="0" />
         <TextBox Template="{StaticResource TextBoxTemplate1}" x:Name ="xTextBox" 
                  Grid.Row="1" Grid.Column="1" Width="200" 

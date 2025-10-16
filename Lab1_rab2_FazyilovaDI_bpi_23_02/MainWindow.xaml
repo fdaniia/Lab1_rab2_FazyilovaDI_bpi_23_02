@@ -304,6 +304,60 @@
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <ControlTemplate x:Key="ButtonTemplate2" TargetType="{x:Type ButtonBase}">
+            <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="Button.IsDefaulted" Value="true">
+                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                </Trigger>
+
+                <!-- Светлая тема по умолчанию -->
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Background" TargetName="border" Value="DarkGreen"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="DarkGreen"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="true">
+                    <Setter Property="Background" TargetName="border" Value="Green"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="Green"/>
+                </Trigger>
+
+                <!-- Если используется темная тема (через Tag или другое свойство) -->
+                <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource AncestorType=Window}}" Value="Dark">
+                    <Setter Property="Background" TargetName="border" Value="DarkBlue"/>
+                </DataTrigger>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding Tag, RelativeSource={RelativeSource AncestorType=Window}}" Value="Dark"/>
+                        <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="Background" TargetName="border" Value="Blue"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="Blue"/>
+                </MultiDataTrigger>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding Tag, RelativeSource={RelativeSource AncestorType=Window}}" Value="Dark"/>
+                        <Condition Binding="{Binding IsPressed, RelativeSource={RelativeSource Self}}" Value="true"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="Background" TargetName="border" Value="Purple"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="Purple"/>
+                </MultiDataTrigger>
+
+                <Trigger Property="IsEnabled" Value="false">
+                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                    <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -319,7 +373,7 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="ThemeToggleButton" Content="темная тема" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Right" 
+        <Button Template="{DynamicResource ButtonTemplate2}" x:Name="ThemeToggleButton" Content="темная тема" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Right" 
                 Click="ThemeToggleButton_Click" Style="{DynamicResource CustomButtonStyle}"/>
         <Label Content="введите x" Grid.Row="1" Grid.Column="0" Style="{DynamicResource {x:Type Label}}"/>
         <TextBox Template="{DynamicResource TextBoxTemplate1}" x:Name ="xTextBox" Grid.Row="1" Grid.Column="1" Width="200" Style="{DynamicResource {x:Type TextBox}}"
@@ -327,10 +381,10 @@
         <Label Content="выберите что считать" Grid.Row="2" Grid.Column="0" Style="{DynamicResource {x:Type Label}}" />
         <ComboBox ItemContainerStyle="{DynamicResource ComboBoxItemContainerStyle1}" Template="{DynamicResource ComboBoxTemplate1}" x:Name="TrigFun" Grid.Row="2" Grid.Column="1" 
                   Style="{DynamicResource {x:Type ComboBox}}" SelectionChanged="TrigFun_SelectionChanged" >
-            <Style TargetType="ComboBoxItem">
+        <!---    <Style TargetType="ComboBoxItem">
                 <Setter Property="Background" Value="{StaticResource ComboBox.Static.Background}"/>
                 <Setter Property="BorderBrush" Value="{StaticResource ComboBox.Static.Background}"/>
-            </Style>
+            </Style> -->
             <ComboBoxItem Content="Secans"  />
             <ComboBoxItem Content="Cosecans" />
             <ComboBoxItem Content="Cotangens" />
